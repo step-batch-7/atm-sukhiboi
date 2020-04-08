@@ -8,7 +8,6 @@ int main(void)
   {
     unsigned int notes = get_money(amounts[i]);
     printf("%5u %08x\n", amounts[i], notes);
-    printf("%d", 1<<1);
   }
 
   return 0;
