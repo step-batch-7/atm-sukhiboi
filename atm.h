@@ -18,4 +18,14 @@
    2590 0x11012000
   31999 0xf3412014
 */
-unsigned int get_money(unsigned short int);
+#define give_nothing return 0
+#define max_amount 31999
+#define type_of_notes 8
+#define iterate_notes for (int i = 0; i < type_of_notes; i++)
+#define note_list {2000, 500, 100, 50, 20, 10, 5, 1}
+#define if_amount_exceed_limit if (amount > max_amount)
+
+typedef unsigned int note;
+typedef unsigned short int money;
+
+note get_money(money);

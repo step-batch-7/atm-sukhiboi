@@ -1,17 +1,16 @@
 #include "./atm.h"
 
-unsigned int get_money(unsigned short int amount)
+note get_money(money amount)
 {
-    if (amount > 31999)
-        return 0;
-    unsigned int notesCount = 0;
-    unsigned short int total = amount;
-    int demonitions[8] = {2000, 500, 100, 50, 20, 10, 5, 1};
-    for (int i = 0; i < 8; i++)
+    if_amount_exceed_limit give_nothing;
+    note notes_count = 0;
+    money total = amount;
+    note notes[] = note_list;
+    iterate_notes
     {
-        notesCount <<= 4;
-        notesCount |= total / demonitions[i];
-        total %= demonitions[i];
+        notes_count <<= 4;
+        notes_count |= total / notes[i];
+        total %= notes[i];
     }
-    return notesCount;
+    return notes_count;
 }
